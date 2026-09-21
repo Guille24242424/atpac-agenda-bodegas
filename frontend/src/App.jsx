@@ -1,4 +1,4 @@
-import{useEffect,useState}from"react";
+import React,{useEffect,useState}from"react";
 const API=import.meta.env.VITE_API_URL||"http://localhost:3001/api";
 async function api(path,options={}){const token=localStorage.getItem("token");const r=await fetch(API+path,{...options,headers:{...(token?{Authorization:`Bearer ${token}`}:{}),...(options.body instanceof FormData?{}:{"Content-Type":"application/json"}),...options.headers}});const d=await r.json();if(!r.ok)throw new Error(d.error||"Error");return d}
 export default function App(){const[user,setUser]=useState(JSON.parse(localStorage.getItem("user")||"null"));if(!user)return <Login done={(u,t)=>{localStorage.setItem("user",JSON.stringify(u));localStorage.setItem("token",t);setUser(u)}}/>;return <Dashboard user={user} logout={()=>{localStorage.clear();setUser(null)}}/>}
