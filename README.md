@@ -8,7 +8,9 @@ Primera base productiva para coordinar retiros y entregas de material.
 - Roles: ADMIN, OPERACIONES y CLIENTE.
 - Solo ADMIN puede crear usuarios.
 - Reservas de tres horas con validación de cruces.
-- Operaciones acepta, rechaza o reagenda.
+- Operaciones acepta, rechaza, cancela o reagenda usando calendario y horas disponibles.
+- Notificaciones por correo al crear, aceptar, rechazar, cancelar o reagendar.
+- Administración completa de usuarios y exportación de datos a Excel/PDF.
 - Cliente visualiza el estado y comentario de Operaciones.
 - PostgreSQL y almacenamiento de archivos configurable.
 
@@ -31,4 +33,6 @@ Al iniciar el backend se crea el administrador indicado en `ADMIN_EMAIL` y
   publicación `dist`.
 - PostgreSQL: agregar `DATABASE_URL` al backend.
 - Archivos: agregar Persistent Disk y configurar `UPLOAD_DIR=/var/data/uploads`.
+- Correo: configurar `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`,
+  `SMTP_PASSWORD` y `MAIL_FROM` en el backend.
 
